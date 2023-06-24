@@ -1,0 +1,11 @@
+/node_modules/
+dist
+package-lock.json
+
+cates.json
+issues.json
+
+tmp
+.idea
+
+yarn-error.log
