@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "@vssue/api-github-v4": "^1.4.7",
+    "@vssue/vuepress-plugin-vssue": "^1.4.8",
+    "markdown-it-katex": "^2.0.3",
+    "markdown-it-task-checkbox": "^1.0.6",
+    "medium-zoom": "^1.0.8",
+    "vue": "^2.7.14",
+    "vue-server-renderer": "^2.7.14",
+    "vuepress": "^1.9.9"
+  },
+  "devDependencies": {
+    "@actions/github": "^5.1.1",
+    "cross-env": "7.0.3",
+    "shelljs": "^0.8.5",
+    "simple-git": "^3.17.0"
+  },
+  "scripts": {
+    "dev": "vuepress dev ./src ",
+    "local:build": "vuepress build ./src --dest ./dist ",
+    "local:run": "cross-env NODE_ENV=local node ./tools/run.js",
+    "build": "cross-env NODE_OPTIONS=--openssl-legacy-provider pnpm run local:build",
+    "action": "cross-env NODE_ENV=action node ./tools/run.js",
+    "push": "cross-env NODE_ENV=local node ./tools/deploy.js",
+    "deploy": "cross-env NODE_ENV=action node ./tools/deploy.js",
+    "test-env": "cross-env custom={\\\"base\\\":\\\"/\\\"} vuepress dev ./src "
+  }
+}
